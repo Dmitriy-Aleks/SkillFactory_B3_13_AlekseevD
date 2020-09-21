@@ -14,7 +14,7 @@ class HTML:
 		return self
 
 	def __exit__(self, *args, **kwargs):
-		# По умолчанию вывод в файл, для вывода в консоль в строке 37 изменить значение output=None
+		# По умолчанию вывод в файл, для вывода в консоль в строке 137 изменить значение output=None
 		if self.output is not None:
 			with open("test.html", "w") as file:
 				file.write(str(self))
