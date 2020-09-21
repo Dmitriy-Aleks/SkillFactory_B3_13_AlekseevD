@@ -14,17 +14,16 @@ class HTML:
 		return self
 
 	def __exit__(self, *args, **kwargs):
-		# По умолчанию вывод в консоль, для проверки формирования файла расскомментировать строку 18:
-		# if self.output == None:
-		# и закоментировать стрку 20
+		# По умолчанию вывод в файл, для вывода в консоль в строке 37 изменить значение output=None
 		if self.output is not None:
+			with open("test.html", "w") as file:
+				file.write(str(self))
+		else:
 			print("<%s>" % self.tag)
 			for child in self.children:
 				print(str(child))
 			print("</%s>" % self.tag)
-		else:
-			with open("test.html", "w") as file:
-				file.write(str(self))
+
 
 	def __str__(self):
 		line = "<{tag}>\n".format(tag=self.tag)
